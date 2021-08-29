@@ -4,13 +4,7 @@ import { useEffect, useState } from 'react'
 const kvDataKey = 'monitors_data_v1_1'
 
 export const locations = {
-  ORF: 'Norfolk, VA',
-  IAD: 'Ashburn, VA',
-  LAS: 'Las Vegas, NV',
-  RIC: 'Richmond, VA',
-  SLC: 'Salt Lake City, UT',
-  SEA: 'Seattle, WA',
-  LHR: 'London, UK',
+  WAW: 'Warsaw',
   SCL: 'Santiago de Chile',
   MEL: 'Melbourne',
   SIN: 'Singapore',
