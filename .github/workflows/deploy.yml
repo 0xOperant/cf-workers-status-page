@@ -8,13 +8,17 @@ on:
   schedule:
     - cron: '0 0 1 * *'
 
+# GITHUB_TOKEN is read-only; the deploy authenticates to Cloudflare via CF_API_TOKEN.
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+    - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5
+    - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4
       with:
         node-version: 12
     - run: yarn install
@@ -22,7 +26,7 @@ jobs:
       env:
         NODE_ENV: production
     - name: Publish
-      uses: cloudflare/wrangler-action@1.3.0
+      uses: cloudflare/wrangler-action@3424d15af26edad39d5276be3cc0cc9ffec22b55  # 1.3.0
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         preCommands: |
